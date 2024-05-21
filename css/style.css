@@ -1,0 +1,16 @@
+#canvas{
+    width: 800px;
+    height: 500px;
+    background-color: red;
+    position: relative;
+    margin: 0 auto;
+}
+
+.mosca{
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+
+}
