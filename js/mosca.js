@@ -1,20 +1,34 @@
 class Mosca{
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
+    constructor(){
+        
+        
         this.width = 50;
         this.height = 50;
         this.boton = document.createElement('button');
-        this.lado = true; //si lado es true la mosca sale a izquierda y si es false sale a derecha
-        this.speed = 5;        
+         //si lado es true la mosca sale a izquierda y si es false sale a derecha
+                
     }
     
-    insertarMosca(){
+    insertarMosca(canvas){
         this.boton.setAttribute('class','mosca');
-        this.boton.style.top = this.y + 'px';
-        this.boton.style.left = this.x + 'px';
+       
+        this.dimeLado(canvas);
         this.boton.style.width = this.width + 'px';
         this.boton.style.height = this.height + 'PX';
         canvas.appendChild(this.boton);
+        
     }
-}
+
+    dimeLado(canvas){
+      let ceroOUno = Math.round(Math.random());
+      console.log(ceroOUno)
+      //si lado es true la mosca sale a izquierda y si es false sale a derecha
+      if (ceroOUno) {
+        console.log(canvas);
+        let puntoIzq = canvas.style.height - this.boton.style.height;
+        console.log(puntoIzq);
+        this.boton.style.top = puntoIzq + "px";
+        
+      }
+    }
+}   

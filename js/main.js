@@ -1,10 +1,10 @@
 let canvas = document.getElementById("canvas");
 let miMosca;
-
+console.log(canvas.style)
 
 function comenzarJuego(){
-    miMosca = new Mosca(400, 100);
-    miMosca.insertarMosca();
+    miMosca = new Mosca();
+    miMosca.insertarMosca(canvas);
 }
 
 comenzarJuego();
