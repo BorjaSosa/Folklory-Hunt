@@ -66,11 +66,18 @@ class Mosca {
     if(this.direccion === "derecha"){
       if ((nuevaY + this.height < 0) || (nuevaX > 800) ){
         clearInterval(this.temporizadorDeMosca); 
+        this.eliminarMosca();
+
       }      
     }else{
       if ((nuevaY + this.height < 0) || (nuevaX + this.width < 0) ){
         clearInterval(this.temporizadorDeMosca); 
+        this.eliminarMosca();
       }
     }
+  }
+
+  eliminarMosca(){
+    canvas.removeChild(this.boton);
   }
 }
