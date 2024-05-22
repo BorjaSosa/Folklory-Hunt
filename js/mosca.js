@@ -13,11 +13,10 @@ class Mosca {
   }
 
   insertarMosca() {
-    this.boton.setAttribute("class", "mosca");
-
     this.dimeLado();
     this.boton.style.width = this.width + "px";
-    this.boton.style.height = this.height + "PX";
+    this.boton.style.height = this.height + "px";
+    this.boton.style.position = "absolute";
     canvas.appendChild(this.boton);
   }
 
@@ -38,27 +37,40 @@ class Mosca {
   }
 
   moverMosca() {
-    if (this.direccion === "derecha"){
+    if (this.direccion === "derecha"){// Es la mosca izquierda que viaja hacia a la derecha
         
         this.decrementoTop += -1;
         this.incrementoLeft += 1;
         let nuevaX = this.x + this.incrementoLeft;
         let nuevaY = this.y + this.decrementoTop;
-        console.log(this.incrementoLeft);
         this.boton.style.top = nuevaY + "px";
         this.boton.style.left = nuevaX + "px";
-    } else {
+        this.moscaFueradeCanvas(nuevaX, nuevaY);
+    } else { // Es la mosca derecha que viaja hacia a la izquierda
         this.decrementoTop += -1;
         this.incrementoLeft += -1;
         let nuevaX = this.x + this.incrementoLeft;
         let nuevaY = this.y + this.decrementoTop;
-        console.log(this.incrementoLeft);
         this.boton.style.top = nuevaY + "px";
         this.boton.style.left = nuevaX + "px";
+        this.moscaFueradeCanvas(nuevaX, nuevaY);
     }
+    
   }
 
   comenzarVuelo(){
     this.temporizadorDeMosca = setInterval( () => this.moverMosca(), 10);
+  }
+  
+  moscaFueradeCanvas(nuevaX, nuevaY){
+    if(this.direccion === "derecha"){
+      if ((nuevaY + this.height < 0) || (nuevaX > 800) ){
+        clearInterval(this.temporizadorDeMosca); 
+      }      
+    }else{
+      if ((nuevaY + this.height < 0) || (nuevaX + this.width < 0) ){
+        clearInterval(this.temporizadorDeMosca); 
+      }
+    }
   }
 }
