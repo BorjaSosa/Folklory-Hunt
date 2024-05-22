@@ -6,3 +6,6 @@
     margin: 0 auto;
 }
 
+.mosca:hover{
+    background-color: blue;
+}

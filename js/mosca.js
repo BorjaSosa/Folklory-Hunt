@@ -42,16 +42,16 @@ class Mosca {
     let aleatorioX = Math.ceil(Math.random() * 10);
     if (this.direccion === "derecha"){// Es la mosca izquierda que viaja hacia a la derecha
         
-        this.decrementoTop += aleatorioY *-1;// -1 Porque va hacia arriba en direccionn a Top
-        this.incrementoLeft += aleatorioX;
+        this.decrementoTop += aleatorioY *-1 * aceleracion;// -1 Porque va hacia arriba en direccionn a Top
+        this.incrementoLeft += aleatorioX * aceleracion;
         let nuevaX = this.x + this.incrementoLeft;
         let nuevaY = this.y + this.decrementoTop;
         this.boton.style.top = nuevaY + "px";
         this.boton.style.left = nuevaX + "px";
         this.moscaFueradeCanvas(nuevaX, nuevaY);
     } else { // Es la mosca derecha que viaja hacia a la izquierda
-      this.decrementoTop += aleatorioY *-1;
-        this.incrementoLeft += aleatorioX * -1;// Negativo porque la mosca en la derecha quiero que vaya hacía la derecha
+      this.decrementoTop += aleatorioY *-1 *aceleracion;
+        this.incrementoLeft += aleatorioX * -1 *aceleracion;// Negativo porque la mosca en la derecha quiero que vaya hacía la derecha
         let nuevaX = this.x + this.incrementoLeft;
         let nuevaY = this.y + this.decrementoTop;
         this.boton.style.top = nuevaY + "px";
@@ -83,6 +83,10 @@ class Mosca {
   eliminarMosca(){
     canvas.removeChild(this.boton);
     clearInterval(this.temporizadorDeMosca); 
+    moscaEliminadas++;
+    aceleracion *= 1.05;
+    console.log(aceleracion)
+
   }
 
 }
