@@ -70,12 +70,14 @@ class Mosca {
       if ((nuevaY + this.height < 0) || (nuevaX > 800) ){
         clearInterval(bucleMosca)
         this.eliminarMosca();
+        this.pantallafinal();
 
       }      
     }else{
       if ((nuevaY + this.height < 0) || (nuevaX + this.width < 0) ){ 
         clearInterval(bucleMosca)
         this.eliminarMosca();
+        this.pantallafinal();
       }
     }
   }
@@ -85,8 +87,46 @@ class Mosca {
     clearInterval(this.temporizadorDeMosca); 
     moscaEliminadas++;
     aceleracion *= 1.05;
-    console.log(aceleracion)
 
+  }
+
+  pantallafinal(){
+    canvas.style.backgroundImage = "url('../assets/img/teloncerrado.png')";
+    canvas.style.backgroundRepeat = "no-repeat";
+    canvas.style.backgroundSize = "cover";
+    //añado un h1 que pone game over
+    canvas.appendChild(document.createElement("h1"));
+    let mish1 = document.getElementsByTagName("h1");
+    mish1[0].style.position = "absolute";
+    mish1[0].style.textAlign = "center";
+    mish1[0].innerText = "Game Over";
+    mish1[0].style.fontFamily = "Pixelify Sans";
+    mish1[0].style.fontSize = "45px";
+    mish1[0].style.fontWeight = "700";
+    mish1[0].style.color = "white";
+    mish1[0].style.textShadow = "2px 2px 4px black";
+    mish1[0].style.top = "40%";
+    mish1[0].style.left = "35%";
+    //añado h1 que pone la puntuación
+    canvas.appendChild(document.createElement("h1"));
+    mish1[1].innerHTML = "Score: " + `<span id="puntuacion">${moscaEliminadas}</span>`;
+    let miPuntuacion = document.getElementById("puntuacion");
+    miPuntuacion.style.fontFamily = "Arial";
+    mish1[1].style.position = "absolute";
+    mish1[1].style.color = "white";
+    mish1[1].style.textAlign = "center";
+    mish1[1].style.fontFamily = "Pixelify Sans";
+    mish1[1].style.fontSize = "28px";
+    mish1[1].style.fontWeight = "400";
+    mish1[1].style.textShadow = "2px 2px 4px black";
+    mish1[1].style.top = "55%";
+    mish1[1].style.left = "42%";
+  
+    
+
+
+
+    
   }
 
 }

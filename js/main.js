@@ -2,7 +2,7 @@ let canvas = document.getElementById("canvas");
 let miMosca;
 let miBoton=[];// Este el array esta vacío
 let bucleMosca;
-let moscaEliminadas = 0;
+let moscaEliminadas = -1;
 let aceleracion = 1;
 
 function comenzarJuego(){
@@ -13,7 +13,6 @@ function comenzarJuego(){
         miBoton = document.getElementsByClassName("mosca");
         miBoton[0].addEventListener("click", () => {
             miMosca.eliminarMosca();
-            console.log(moscaEliminadas);
         });
     }
 }
