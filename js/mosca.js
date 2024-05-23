@@ -9,7 +9,8 @@ class Mosca {
     this.temporizadorDeMosca = null;
     this.incrementoLeft = 0;
     this.decrementoTop = 0;
-    //si lado es true la mosca sale a izquierda y si es false sale a derecha
+    this.canciones = ['"../audio/mosca_track1.mp3"'];
+    
   }
 
   insertarMosca() {
@@ -19,12 +20,16 @@ class Mosca {
     this.boton.style.position = "absolute";
     this.boton.setAttribute("class", "mosca");
     canvas.appendChild(this.boton);
+    /*this.boton.appendChild(document.createElement("audio"));
+    let cancion = document.getElementsByTagName("audio");
+    cancion.setAttribute("src", canciones[0]);
+    cancion.setAttribute("autoplay","true");
+    cancion.setAttribute("loop", "true");*/
   }
 
   dimeLado() {
     
     let posicionRandom = Math.round(Math.random()*750);
-    //console.log(posicionRandom);
     //si lado es true la mosca sale a izquierda y si es false sale a derecha
     if (posicionRandom <= 350) {
       this.boton.style.top = 450 + "px";

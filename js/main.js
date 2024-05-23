@@ -1,15 +1,18 @@
 let canvas = document.getElementById("canvas");
 let miMosca;
-let miBoton=[];// Este el array esta vacío
+let miBoton=[];
 let bucleMosca;
 let moscaEliminadas = -1;
 let aceleracion = 1;
 let misButacas = document.getElementById("butacas");
+let botonStart = document.getElementById("boton-start");
+let tituloStart = document.getElementById("titulo-start");
+let padreMoscasStart = document.getElementById("padre-moscas-start");
 
 function comenzarJuego(){
     if(miBoton.length < 1){// Primero veo si el array esta vacío o hay una mosca. Si esta vacío añado una mosca.
         miMosca = new Mosca();
-        canvas.style.backgroundImage = "url(../assets/img/escenario.png";
+        canvas.style.backgroundImage = "url(../assets/img/escenario_v2.jpeg";
         canvas.style.backgroundRepeat = "no-repeat";
         canvas.style.backgroundSize = "contain";
         miMosca.insertarMosca();
@@ -21,7 +24,7 @@ function comenzarJuego(){
     }
 }
 
- function pantallaFinal(){
+function pantallaFinal(){
     misButacas.style.display = "none";
     canvas.style.backgroundImage = "url('../assets/img/teloncerrado.png')";
     canvas.style.backgroundRepeat = "no-repeat";
@@ -81,10 +84,14 @@ function comenzarJuego(){
         misButacas.style.display = "block";
         bucleMosca = setInterval(() => comenzarJuego(), 1);
     });    
-  }
+}
 
-  function pantallaInicio() {
+//El juego comienza aquí. 
+botonStart.addEventListener("click", () => {
+    canvas.removeChild(tituloStart);
+    canvas.removeChild(padreMoscasStart);
+    canvas.removeChild(botonStart);
+    misButacas.style.display = "block";
+    bucleMosca = setInterval( () => {comenzarJuego()}, 1);
+});
 
-  }
- 
-bucleMosca = setInterval(()=>{comenzarJuego()}, 1);//El juego se ejecuta aquí. 
