@@ -72,14 +72,16 @@ class Mosca {
       if ((nuevaY + this.height < 0) || (nuevaX > 800) ){
         clearInterval(bucleMosca)
         this.eliminarMosca();
-        pantallafinal();
+        pantallaFinal();
+
 
       }      
     }else{
       if ((nuevaY + this.height < 0) || (nuevaX + this.width < 0) ){ 
         clearInterval(bucleMosca)
         this.eliminarMosca();
-        pantallafinal();
+        pantallaFinal();
+        
       }
     }
   }
@@ -91,7 +93,5 @@ class Mosca {
     aceleracion *= 1.05;
 
   }
-
- 
 
 }

@@ -4,6 +4,7 @@ let miBoton=[];// Este el array esta vacío
 let bucleMosca;
 let moscaEliminadas = -1;
 let aceleracion = 1;
+let misButacas = document.getElementById("butacas");
 
 function comenzarJuego(){
     if(miBoton.length < 1){// Primero veo si el array esta vacío o hay una mosca. Si esta vacío añado una mosca.
@@ -20,7 +21,8 @@ function comenzarJuego(){
     }
 }
 
- function pantallafinal(){
+ function pantallaFinal(){
+    misButacas.style.display = "none";
     canvas.style.backgroundImage = "url('../assets/img/teloncerrado.png')";
     canvas.style.backgroundRepeat = "no-repeat";
     canvas.style.backgroundSize = "cover";
@@ -59,24 +61,30 @@ function comenzarJuego(){
     misbotones[0].style.position = "absolute";
     misbotones[0].style.textAlign = "center";
     misbotones[0].style.fontFamily = "Pixelify Sans";
-    misbotones[0].style.backgroundColor = "radial-gradient(#f7b379, #ffa70d)";
-    misbotones[0].style.color = "#711434";
-    misbotones[0].style.top = "70%";
-    misbotones[0].style.left = "45%";
-    misbotones[0].style.padding = "10px";
-    misbotones[0].style.borderRadius = "8px";
-    misbotones[0].style.boxShadow = "3px 3px 10px #f7b379, 5px 5px 15px #711434";
-    misbotones[0].style.border = "2px solid #3e0c2a";
+    misbotones[0].style.top = "75%";
+    misbotones[0].style.left = "42%";
+    // -----Todos estos estilos son del boton nuestro------
+    //misbotones[0].style.backgroundColor = "radial-gradient(#f7b379, #ffa70d)";
+    //misbotones[0].style.color = "#711434";
+    //misbotones[0].style.padding = "10px";
+    //misbotones[0].style.borderRadius = "8px";
+    //misbotones[0].style.boxShadow = "3px 3px 10px #f7b379, 5px 5px 15px #711434";
+    //misbotones[0].style.border = "2px solid #3e0c2a";
     misbotones[0].setAttribute("id","boton-reset");
     misbotones[0].addEventListener("click", () => {
-      canvas.removeChild(mish1[1]); // ojo usamos getElement los array están vivos, si borramos 1ero la posicion cero la 1 se convierte en posición cero, por lo que borramos del indice mayor al menor 
-      canvas.removeChild(mish1[0]); 
-      canvas.removeChild(misbotones[0]);
-      canvas.style.backgroundImage = "none";
-       bucleMosca = setInterval(() =>
-         comenzarJuego(), 1);
+        canvas.removeChild(mish1[1]); // ojo usamos getElement los array están vivos, si borramos 1ero la posicion cero la 1 se convierte en posición cero, por lo que borramos del indice mayor al menor 
+        canvas.removeChild(mish1[0]); 
+        canvas.removeChild(misbotones[0]);
+        canvas.style.backgroundImage = "none";
+        aceleracion = 1;
+        moscaEliminadas=-1;
+        misButacas.style.display = "block";
+        bucleMosca = setInterval(() => comenzarJuego(), 1);
     });    
   }
- 
 
-     bucleMosca = setInterval(()=>{comenzarJuego()}, 1);//El juego se ejecuta aquí. 
+  function pantallaInicio() {
+
+  }
+ 
+bucleMosca = setInterval(()=>{comenzarJuego()}, 1);//El juego se ejecuta aquí. 
