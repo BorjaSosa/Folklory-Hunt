@@ -22,24 +22,26 @@ class Mosca {
   }
 
   dimeLado() {
-    let ceroOUno = Math.round(Math.random());
-    //console.log(ceroOUno);
+    
+    let posicionRandom = Math.round(Math.random()*750);
+    //console.log(posicionRandom);
     //si lado es true la mosca sale a izquierda y si es false sale a derecha
-    if (ceroOUno) {
+    if (posicionRandom <= 350) {
       this.boton.style.top = 450 + "px";
-      this.x = 0;
+      this.boton.style.left = posicionRandom + "px";
+      this.x = posicionRandom;
       this.direccion = "derecha";
     } else {
       this.boton.style.top = 450 + "px";
-      this.boton.style.left = 750 + "px";
-      this.x = 750;
+      this.boton.style.left =  posicionRandom + "px";
+      this.x = posicionRandom;
       this.direccion = "izquierda";
     }
   }
 
   moverMosca() {
-    let aleatorioY= Math.ceil(Math.random()*10);// Devulve número entre 1 y 10
-    let aleatorioX = Math.ceil(Math.random() * 10);
+    let aleatorioY= Math.ceil(Math.random() * 5 );// Devulve número entre 1 y 10
+    let aleatorioX = Math.ceil(Math.random() * 5);
     if (this.direccion === "derecha"){// Es la mosca izquierda que viaja hacia a la derecha
         
         this.decrementoTop += aleatorioY *-1 * aceleracion;// -1 Porque va hacia arriba en direccionn a Top
@@ -62,7 +64,7 @@ class Mosca {
   }
 
   comenzarVuelo(){
-    this.temporizadorDeMosca = setInterval( () => this.moverMosca(), 100);
+    this.temporizadorDeMosca = setInterval( () => this.moverMosca(), 50);
   }
   
   moscaFueradeCanvas(nuevaX, nuevaY){
@@ -70,14 +72,14 @@ class Mosca {
       if ((nuevaY + this.height < 0) || (nuevaX > 800) ){
         clearInterval(bucleMosca)
         this.eliminarMosca();
-        this.pantallafinal();
+        pantallafinal();
 
       }      
     }else{
       if ((nuevaY + this.height < 0) || (nuevaX + this.width < 0) ){ 
         clearInterval(bucleMosca)
         this.eliminarMosca();
-        this.pantallafinal();
+        pantallafinal();
       }
     }
   }
@@ -90,43 +92,6 @@ class Mosca {
 
   }
 
-  pantallafinal(){
-    canvas.style.backgroundImage = "url('../assets/img/teloncerrado.png')";
-    canvas.style.backgroundRepeat = "no-repeat";
-    canvas.style.backgroundSize = "cover";
-    //añado un h1 que pone game over
-    canvas.appendChild(document.createElement("h1"));
-    let mish1 = document.getElementsByTagName("h1");
-    mish1[0].style.position = "absolute";
-    mish1[0].style.textAlign = "center";
-    mish1[0].innerText = "Game Over";
-    mish1[0].style.fontFamily = "Pixelify Sans";
-    mish1[0].style.fontSize = "45px";
-    mish1[0].style.fontWeight = "700";
-    mish1[0].style.color = "white";
-    mish1[0].style.textShadow = "2px 2px 4px black";
-    mish1[0].style.top = "40%";
-    mish1[0].style.left = "35%";
-    //añado h1 que pone la puntuación
-    canvas.appendChild(document.createElement("h1"));
-    mish1[1].innerHTML = "Score: " + `<span id="puntuacion">${moscaEliminadas}</span>`;
-    let miPuntuacion = document.getElementById("puntuacion");
-    miPuntuacion.style.fontFamily = "Arial";
-    mish1[1].style.position = "absolute";
-    mish1[1].style.color = "white";
-    mish1[1].style.textAlign = "center";
-    mish1[1].style.fontFamily = "Pixelify Sans";
-    mish1[1].style.fontSize = "28px";
-    mish1[1].style.fontWeight = "400";
-    mish1[1].style.textShadow = "2px 2px 4px black";
-    mish1[1].style.top = "55%";
-    mish1[1].style.left = "42%";
-  
-    
-
-
-
-    
-  }
+ 
 
 }

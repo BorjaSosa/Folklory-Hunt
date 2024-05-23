@@ -11,3 +11,7 @@
 .mosca:hover{
     background-color: blue;
 }
+
+#boton-reset{
+    background: radial-gradient(#ffdc9e, #ffa70d);
+}
