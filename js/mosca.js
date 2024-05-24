@@ -9,7 +9,7 @@ class Mosca {
     this.temporizadorDeMosca = null;
     this.incrementoLeft = 0;
     this.decrementoTop = 0;
-    this.canciones = ['"../audio/mosca_track1.mp3"'];
+    this.canciones = ['../assets/audio/mosca_track1.mp3'];
     
   }
 
@@ -20,11 +20,13 @@ class Mosca {
     this.boton.style.position = "absolute";
     this.boton.setAttribute("class", "mosca");
     canvas.appendChild(this.boton);
-    /*this.boton.appendChild(document.createElement("audio"));
+    this.boton.appendChild(document.createElement("audio"));
     let cancion = document.getElementsByTagName("audio");
-    cancion.setAttribute("src", canciones[0]);
-    cancion.setAttribute("autoplay","true");
-    cancion.setAttribute("loop", "true");*/
+    console.log(cancion[0]);
+    cancion[0].src = this.canciones[0];
+    cancion[0].setAttribute("autoplay","true");
+    cancion[0].setAttribute("loop", "true"); 
+    
   }
 
   dimeLado() {
