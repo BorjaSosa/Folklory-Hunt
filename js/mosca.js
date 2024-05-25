@@ -9,7 +9,12 @@ class Mosca {
     this.temporizadorDeMosca = null;
     this.incrementoLeft = 0;
     this.decrementoTop = 0;
-    this.canciones = ['../assets/audio/mosca_track1.mp3'];
+    this.canciones = ['../assets/audio/cancion-Falete.mp3',
+                      '../assets/audio/cancion-Pantoja.mp3',
+                      '../assets/audio/cancion-MariaDelMonte.mp3',
+                      '../assets/audio/cancion-RocioJurado.mp3',
+                      '../assets/audio/cancion-Lolita.mp3',
+                      ];
     
   }
 
@@ -22,8 +27,9 @@ class Mosca {
     canvas.appendChild(this.boton);
     this.boton.appendChild(document.createElement("audio"));
     let cancion = document.getElementsByTagName("audio");
-    console.log(cancion[0]);
-    cancion[0].src = this.canciones[0];
+    let elegirCancion = Math.round(Math.random() * 4);
+    console.log(elegirCancion);
+    cancion[0].src = this.canciones[elegirCancion];
     cancion[0].setAttribute("autoplay","true");
     cancion[0].setAttribute("loop", "true"); 
     
@@ -79,7 +85,7 @@ class Mosca {
       if ((nuevaY + this.height < 0) || (nuevaX > 800) ){
         clearInterval(bucleMosca)
         this.eliminarMosca();
-        pantallaFinal();
+        setTimeout( () => {pantallaFinal()}, 500);
 
 
       }      
@@ -87,18 +93,22 @@ class Mosca {
       if ((nuevaY + this.height < 0) || (nuevaX + this.width < 0) ){ 
         clearInterval(bucleMosca)
         this.eliminarMosca();
-        pantallaFinal();
+        setTimeout( () => {pantallaFinal()}, 500);
         
       }
     }
   }
 
   eliminarMosca(){
-    canvas.removeChild(this.boton);
-    clearInterval(this.temporizadorDeMosca); 
-    moscaEliminadas++;
-    aceleracion *= 1.05;
-
+    
+    clearInterval(this.temporizadorDeMosca);
+    let cancion = document.getElementsByTagName("audio");
+    cancion[0].src = "../assets/audio/golpe-karate.mp3";
+    this.boton.style.backgroundImage = "url(../assets/img/explosion2.gif)";
+    setTimeout( () => {
+      canvas.removeChild(this.boton);      
+      moscaEliminadas++;
+      aceleracion *= 1.05;
+    }, 500);
   }
-
 }

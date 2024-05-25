@@ -28,11 +28,16 @@ function pantallaFinal(){
     canvas.style.backgroundImage = "url('../assets/img/teloncerrado.png')";
     canvas.style.backgroundRepeat = "no-repeat";
     canvas.style.backgroundSize = "cover";
-    //añado un h1 que pone game over
+    canvas.appendChild(document.createElement("audio"));
+    let sonidoPantallaFinal = document.getElementsByTagName("audio");
+    console.log(sonidoPantallaFinal);
+    sonidoPantallaFinal[0].src = "../assets/audio/game-over1.mp3";
+    sonidoPantallaFinal[0].loop = false;
+    sonidoPantallaFinal[0].
     canvas.appendChild(document.createElement("h1"));
     canvas.appendChild(document.createElement("h1"));
+    //modifico el h1 que pone game over
     let mish1 = document.getElementsByTagName("h1");
-    console.log(mish1);
     mish1[0].style.position = "absolute";
     mish1[0].style.textAlign = "center";
     mish1[0].innerText = "Game Over";
@@ -43,7 +48,7 @@ function pantallaFinal(){
     mish1[0].style.textShadow = "2px 2px 4px black";
     mish1[0].style.top = "40%";
     mish1[0].style.left = "35%";
-    //añado h1 que pone la puntuación
+    //modifico el h1 que pone la puntuación
     mish1[1].innerHTML = "Score: " + `<span id="puntuacion">${moscaEliminadas}</span>`;
     let miPuntuacion = document.getElementById("puntuacion");
     miPuntuacion.style.fontFamily = "Arial";
@@ -59,6 +64,7 @@ function pantallaFinal(){
     //insertamos el boto reset
     canvas.appendChild(document.createElement("button"));
     let misbotones = document.getElementsByTagName("button");
+    
     misbotones[0].innerText = "Reset";
     misbotones[0].style.position = "absolute";
     misbotones[0].style.textAlign = "center";
@@ -92,4 +98,3 @@ botonStart.addEventListener("click", () => {
     misButacas.style.display = "block";
     bucleMosca = setInterval( () => {comenzarJuego()}, 1);
 });
-
