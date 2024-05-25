@@ -6,7 +6,6 @@ let moscaEliminadas = -1;
 let aceleracion = 1;
 let misButacas = document.getElementById("butacas");
 let botonStart = document.getElementById("boton-start");
-let tituloStart = document.getElementById("titulo-start");
 let padreMoscasStart = document.getElementById("padre-moscas-start");
 
 function comenzarJuego(){
@@ -88,7 +87,6 @@ function pantallaFinal(){
 
 //El juego comienza aquí. 
 botonStart.addEventListener("click", () => {
-    canvas.removeChild(tituloStart);
     canvas.removeChild(padreMoscasStart);
     canvas.removeChild(botonStart);
     misButacas.style.display = "block";

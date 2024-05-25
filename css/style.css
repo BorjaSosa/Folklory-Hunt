@@ -17,9 +17,9 @@ body{
     width: 800px;
     height: 500px;
     background-color: black;
-    background-image: url(../assets/img/fondo-start.png);
+    background-image: url(../assets/img/fondo_start1.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
     overflow: hidden;
     margin: 0 auto;
