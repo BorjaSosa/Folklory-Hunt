@@ -69,7 +69,7 @@ body{
     --enhanced-glow-color: rgb(254, 255, 206);
     --btn-color: rgb(241, 229, 118);
     border: .25em solid var(--glow-color);
-    padding: 0.1em 1.5em;
+    padding: 0.1em 1.4em;
     color: var(--glow-color);
     font-size: 20px;
     font-weight: bold;

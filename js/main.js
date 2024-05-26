@@ -30,10 +30,9 @@ function pantallaFinal(){
     canvas.style.backgroundSize = "cover";
     canvas.appendChild(document.createElement("audio"));
     let sonidoPantallaFinal = document.getElementsByTagName("audio");
-    console.log(sonidoPantallaFinal);
-    sonidoPantallaFinal[0].src = "../assets/audio/game-over1.mp3";
+    sonidoPantallaFinal[0].src = "../assets/audio/game-over2.mp3";
     sonidoPantallaFinal[0].loop = false;
-    sonidoPantallaFinal[0].
+    sonidoPantallaFinal[0].autoplay = true;
     canvas.appendChild(document.createElement("h1"));
     canvas.appendChild(document.createElement("h1"));
     //modifico el h1 que pone game over
@@ -64,20 +63,12 @@ function pantallaFinal(){
     //insertamos el boto reset
     canvas.appendChild(document.createElement("button"));
     let misbotones = document.getElementsByTagName("button");
-    
     misbotones[0].innerText = "Reset";
     misbotones[0].style.position = "absolute";
     misbotones[0].style.textAlign = "center";
     misbotones[0].style.fontFamily = "Pixelify Sans";
     misbotones[0].style.top = "75%";
     misbotones[0].style.left = "42%";
-    // -----Todos estos estilos son del boton nuestro------
-    //misbotones[0].style.backgroundColor = "radial-gradient(#f7b379, #ffa70d)";
-    //misbotones[0].style.color = "#711434";
-    //misbotones[0].style.padding = "10px";
-    //misbotones[0].style.borderRadius = "8px";
-    //misbotones[0].style.boxShadow = "3px 3px 10px #f7b379, 5px 5px 15px #711434";
-    //misbotones[0].style.border = "2px solid #3e0c2a";
     misbotones[0].setAttribute("id","boton-reset");
     misbotones[0].addEventListener("click", () => {
         canvas.removeChild(mish1[1]); // ojo usamos getElement los array están vivos, si borramos 1ero la posicion cero la 1 se convierte en posición cero, por lo que borramos del indice mayor al menor 
