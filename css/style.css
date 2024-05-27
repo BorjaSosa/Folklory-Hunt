@@ -25,9 +25,20 @@ body{
     margin: 0 auto;
 }
 
-#titulo-start{
+p{
+    position: absolute;
+    background-color: rgba(255, 253, 123, 0.781);
+    color: rgb(168, 25, 0);
+    width: 75px;
+    height: 25px;
     text-align: center;
-    color: white;
+    bottom: 10px;
+    z-index: 200;
+    border-radius: 10px;
+    font-family: "Pixelify Sans";
+    padding-top: 6px;
+    font-size: 17px;
+
 }
 
 .mosca{

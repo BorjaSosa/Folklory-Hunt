@@ -9,12 +9,19 @@ class Mosca {
     this.temporizadorDeMosca = null;
     this.incrementoLeft = 0;
     this.decrementoTop = 0;
-    this.canciones = ['../assets/audio/cancion-Falete.mp3',
-                      '../assets/audio/cancion-Pantoja.mp3',
-                      '../assets/audio/cancion-MariaDelMonte.mp3',
-                      '../assets/audio/cancion-RocioJurado.mp3',
-                      '../assets/audio/cancion-Lolita.mp3',
-                      ];
+    this.canciones = [
+      "../assets/audio/cancion-Falete.mp3",
+      "../assets/audio/cancion-Pantoja.mp3",
+      "../assets/audio/cancion-MariaDelMonte.mp3",
+      "../assets/audio/cancion-RocioJurado.mp3",
+      "../assets/audio/cancion-Lolita.mp3",
+      "../assets/audio/cancion-Chiquetete.mp3",
+      "../assets/audio/cancion-Chunguitos.mp3",
+      "../assets/audio/cancion-ManoloEscobar1.mp3",
+      "../assets/audio/cancion-ManoloEscobar2.mp3",
+      "../assets/audio/cancion-ElFary.mp3",
+      "../assets/audio/cancion-PaquitaLaDelBarrio.mp3",
+    ];
     
   }
 
@@ -27,8 +34,7 @@ class Mosca {
     canvas.appendChild(this.boton);
     this.boton.appendChild(document.createElement("audio"));
     let cancion = document.getElementsByTagName("audio");
-    let elegirCancion = Math.round(Math.random() * 4);
-    console.log(elegirCancion);
+    let elegirCancion = Math.round(Math.random() *10);
     cancion[0].src = this.canciones[elegirCancion];
     cancion[0].setAttribute("autoplay","true");
     cancion[0].setAttribute("loop", "true"); 
@@ -108,6 +114,7 @@ class Mosca {
     setTimeout( () => {
       canvas.removeChild(this.boton);      
       moscaEliminadas++;
+      cartelesButacas[1].innerHTML = moscaEliminadas + 1;
       aceleracion *= 1.05;
     }, 500);
   }
