@@ -90,16 +90,29 @@ function pantallaFinal(){
 
 //El juego comienza aquí. 
 botonStart.addEventListener("click", () => {
-    canvas.removeChild(padreMoscasStart);
-    canvas.removeChild(botonStart);
-    misButacas.style.display = "block";
-    canvas.appendChild(document.createElement("p")); //Creamos los carteles de las 2 butacas como parrafos
-    canvas.appendChild(document.createElement("p"));
-    cartelesButacas = document.getElementsByTagName("p");
-    cartelesButacas[0].style.left = "285px";
-    cartelesButacas[1].style.left = "440px";
-    cartelesButacas[0].innerText = "Score :";
-    cartelesButacas[1].innerHTML = moscaEliminadas + 1;
+    botonStart.style.backgroundImage = "url('../assets/img/boton-start2.png')";
+    let cancionInicio = document.getElementById("cancion-inicio");
+    padreMoscasStart.removeChild(cancionInicio);
+    botonStart.appendChild(document.createElement("audio"));
+    let soundStartClick = document.getElementsByTagName("audio");
+    soundStartClick[0].src = "../assets/audio/pulsar-start.mp3";
+    soundStartClick[0].autoplay = true;
 
-    bucleMosca = setInterval( () => {comenzarJuego()}, 1);
+    setTimeout( () => {
+        canvas.removeChild(padreMoscasStart);
+        canvas.removeChild(botonStart);
+        misButacas.style.display = "block";
+        canvas.appendChild(document.createElement("p")); //Creamos los carteles de las 2 butacas como parrafos
+        canvas.appendChild(document.createElement("p"));
+        cartelesButacas = document.getElementsByTagName("p");
+        cartelesButacas[0].style.left = "285px";
+        cartelesButacas[1].style.left = "440px";
+        cartelesButacas[0].innerText = "Score :";
+        cartelesButacas[1].innerHTML = moscaEliminadas + 1;
+
+        bucleMosca = setInterval(() => {
+          comenzarJuego();
+        }, 1);
+    },1000);
+    
 });

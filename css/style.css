@@ -32,7 +32,7 @@ p{
     width: 75px;
     height: 25px;
     text-align: center;
-    bottom: 10px;
+    bottom: 0;
     z-index: 200;
     border-radius: 10px;
     font-family: "Pixelify Sans";
@@ -60,9 +60,13 @@ p{
     height: 100px;
 }
 
-/*#boton-reset{
-    background: radial-gradient(#ffdc9e, #ffa70d);
-}*/
+#boton-start{
+    margin-left: 265px;
+    width: 250px;
+    height: 70px;
+    background-image: url(../assets/img/boton-start1.png);
+}
+
 
 #butacas{
     background-image: url(../assets/img/butacasv2.png);
@@ -122,164 +126,3 @@ p{
         0 0 2.5em 2em var(--glow-spread-color),
         inset 0 0 .5em .25em var(--glow-color);
 }/*Aqui terminan los estilos del boton reset que buscamos*/
-
-
-/*------------- Aqui comienza el diseño de el boton start-------------*/
-
-#boton-start {
-    width: 800px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-#boton-start .btn {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 50px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#boton-start .btn a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    padding: 10px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    overflow: hidden;
-    color: #fff;
-    font-weight: 400px;
-    z-index: 1;
-    transition: 0.5s;
-    backdrop-filter: blur(15px);
-}
-
-#boton-start .btn:hover a {
-    letter-spacing: 3px;
-}
-
-#boton-start .btn a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 50px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#boton-start .btn a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    padding: 10px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    overflow: hidden;
-    color: #fff;
-    font-weight: 400px;
-    z-index: 1;
-    transition: 0.5s;
-    backdrop-filter: blur(15px);
-}
-
-#boton-start .btn:hover a {
-    letter-spacing: 3px;
-}
-
-#boton-start .btn a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
-    transform: skewX(45deg) translate(0);
-    transition: 0.5s;
-    filter: blur(0px);
-}
-
-#boton-start .btn:hover a::before {
-    transform: skewX(45deg) translate(200px);
-}
-
-#boton-start .btn::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-    bottom: -5px;
-    width: 30px;
-    height: 10px;
-    background: #f00;
-    border-radius: 10px;
-    transition: 0.5s;
-    transition-delay: 0.5;
-}
-
-#boton-start .btn:hover::before /lightup button/ {
-    bottom: 0;
-    height: 50%;
-    width: 80%;
-    border-radius: 30px;
-}
-
-#boton-start .btn::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-    top: -5px;
-    width: 30px;
-    height: 10px;
-    background: #f00;
-    border-radius: 10px;
-    transition: 0.5s;
-    transition-delay: 0.5;
-}
-
-#boton-start .btn:hover::after /lightup button/ {
-    top: 0;
-    height: 50%;
-    width: 80%;
-    border-radius: 30px;
-}
-
-#boton-start .btn:nth-child(1)::before,
-#boton-start .btn:nth-child(1)::after {
-    background: #1eff45;
-    box-shadow: 0 0 5px #1eff45, 0 0 15px #1eff45, 0 0 30px #1eff45, 0 0 60px #1eff45;
-}/* ------- Aqui termina el#boton-start-------------------*/
