@@ -23,6 +23,11 @@ body{
     position: relative;
     overflow: hidden;
     margin: 0 auto;
+    cursor: crosshair;
+}
+
+#canvas *{
+    cursor: crosshair;
 }
 
 p{
